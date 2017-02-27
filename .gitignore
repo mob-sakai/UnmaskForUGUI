@@ -1,0 +1,13 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+*.csproj
+*.sln
+*.unitypackage
+*.userprefs
+
+.vs/
+_Android/
+_iOS/
+_WebGL/
+_Standalone/
