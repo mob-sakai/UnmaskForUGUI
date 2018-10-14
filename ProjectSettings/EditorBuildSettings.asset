@@ -6,4 +6,4 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Unmask - Demo.unity
+    path: Assets/Coffee/UIExtensions/UnmaskForUGUI/Demo/Unmask_Demo.unity
