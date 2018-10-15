@@ -16,7 +16,7 @@ namespace Coffee.UIExtensions.Demos
 
 		public void AutoFitToButton(bool flag)
 		{
-			unmask.autoFitTarget = flag ? (target.transform as RectTransform) : null;
+			unmask.fitOnLateUpdate = flag;
 		}
 
 		public void SetTransitionColor(bool flag)
