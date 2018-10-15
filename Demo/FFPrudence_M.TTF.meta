@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3c5033f96004d440ba388ee12a0dd1f9
+timeCreated: 1539584885
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 14
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FF Prudence Medium
+  fontNames:
+  - FF Prudence Medium
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
