@@ -39,6 +39,8 @@ Unmask provides the following features:
 
 [WebGL Demo](http://mob-sakai.github.io/UnmaskForUGUI)
 
+![demo](https://user-images.githubusercontent.com/12690315/46986251-4e296480-d129-11e8-8e3a-2bb0e5fbe533.gif)
+
 
 
 <br><br><br><br>
@@ -53,14 +55,27 @@ Unmask provides the following features:
     * If the button moves with animation etc., enable `Fit On LateUpdate` in Unmask component.
     * Add a UnmaskRaycastFilter component to UI element blocking ray.
     * Set the Unmask to `Unmask` in UnmaskRaycastFilter component.
-    * Disable `RaycastTarget` of the UI elements under Mask, as necessary.
-5. Enjoy!
+    * Disable `RaycastTarget` of the UI elements, as necessary.  
+![](https://user-images.githubusercontent.com/12690315/46986095-8a0ffa00-d128-11e8-83ac-9151e2d8635d.gif)
+1. Enjoy!
 
 
 ##### Requirement
 
 * Unity 5.5+ *(included Unity 2018.x)*
 * No other SDK are required
+
+
+
+<br><br><br><br>
+## Example of using
+
+| Case | Description |Screenshot |
+|-|-|-|
+|Unmasked text|Black screen is cut out with unmasked text.|![](https://user-images.githubusercontent.com/12690315/46914021-c6c9dd00-cfd2-11e8-9698-6332bac8fef5.png)|
+|Hole|Black screen is cut out with unmasked Image.|![](https://user-images.githubusercontent.com/12690315/46985696-9b580700-d126-11e8-9b4a-3d66180c9562.png)|
+|Tutorial button|In tutorial, only specific button can be pressed.|![](https://user-images.githubusercontent.com/12690315/46983810-30560280-d11d-11e8-86d5-b25117740df4.png)|
+|Transition|Transition effect with silhouette.|![](https://user-images.githubusercontent.com/12690315/46983811-30560280-d11d-11e8-8d81-b38679cf9970.gif)|
 
 
 
