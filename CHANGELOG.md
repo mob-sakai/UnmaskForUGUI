@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.0](https://github.com/mob-sakai/UnmaskForUGUI/tree/v0.2.0) (2018-10-16)
+
+[Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v0.1.0...v0.2.0)
+
+**Implemented enhancements:**
+
+- Update demo & readme [\#9](https://github.com/mob-sakai/UnmaskForUGUI/issues/9)
+
 ## [v0.1.0](https://github.com/mob-sakai/UnmaskForUGUI/tree/v0.1.0) (2018-10-14)
 
 [Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/987e437b26b83a78d6f54d6cc6778c3181e8e5dc...v0.1.0)
