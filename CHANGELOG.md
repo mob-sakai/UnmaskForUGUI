@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.0](https://github.com/mob-sakai/UnmaskForUGUI/tree/v1.0.0) (2018-10-19)
+
+[Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v0.2.0...v1.0.0)
+
+**Implemented enhancements:**
+
+- Add `Fit On LateUpdate` option [\#10](https://github.com/mob-sakai/UnmaskForUGUI/issues/10)
+
 ## [v0.2.0](https://github.com/mob-sakai/UnmaskForUGUI/tree/v0.2.0) (2018-10-16)
 
 [Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v0.1.0...v0.2.0)

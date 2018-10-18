@@ -23,8 +23,10 @@ namespace Coffee.UIExtensions
 		//################################
 		// Serialize Members.
 		//################################
-		[Tooltip("Fit graphic's transform to target transform on LateUpdate.")]
-		[SerializeField] RectTransform m_AutoFitTarget;
+		[Tooltip("Fit graphic's transform to target transform.")]
+		[SerializeField] RectTransform m_FitTarget;
+		[Tooltip("Fit graphic's transform to target transform on LateUpdate every frame.")]
+		[SerializeField] bool m_FitOnLateUpdate;
 		[Tooltip("Show the graphic that is associated with the unmask render area.")]
 		[SerializeField] bool m_ShowUnmaskGraphic = false;
 
@@ -38,9 +40,22 @@ namespace Coffee.UIExtensions
 		public Graphic graphic{ get { return _graphic ?? (_graphic = GetComponent<Graphic>()); } }
 
 		/// <summary>
-		/// Fit graphic's transform to target transform on LateUpdate.
+		/// Fit graphic's transform to target transform.
 		/// </summary>
-		public RectTransform autoFitTarget{ get { return m_AutoFitTarget; } set { m_AutoFitTarget = value; } }
+		public RectTransform fitTarget
+		{
+			get { return m_FitTarget; }
+			set
+			{
+				m_FitTarget = value;
+				FitTo(m_FitTarget);
+			}
+		}
+
+		/// <summary>
+		/// Fit graphic's transform to target transform on LateUpdate every frame.
+		/// </summary>
+		public bool fitOnLateUpdate{ get { return m_FitOnLateUpdate; } set { m_FitOnLateUpdate = value; } }
 
 		/// <summary>
 		/// Show the graphic that is associated with the unmask render area.
@@ -72,7 +87,6 @@ namespace Coffee.UIExtensions
 
 			StencilMaterial.Remove(_unmaskMaterial);
 			_unmaskMaterial = StencilMaterial.Add(baseMaterial, (1 << stencilDepth) - 1, StencilOp.Zero, CompareFunction.Always, m_ShowUnmaskGraphic ? ColorWriteMask.All : (ColorWriteMask)0, 0, (1 << stencilDepth) - 1);
-			//StencilMaterial.Remove (baseMaterial);
 
 			return _unmaskMaterial;
 		}
@@ -107,9 +121,9 @@ namespace Coffee.UIExtensions
 		/// </summary>
 		void OnEnable()
 		{
-			if (m_AutoFitTarget)
+			if (m_FitTarget)
 			{
-				FitTo(m_AutoFitTarget);
+				FitTo(m_FitTarget);
 			}
 			SetDirty();
 		}
@@ -129,9 +143,13 @@ namespace Coffee.UIExtensions
 		/// </summary>
 		void LateUpdate()
 		{
-			if (m_AutoFitTarget)
+			#if UNITY_EDITOR
+			if (m_FitTarget && (m_FitOnLateUpdate || !Application.isPlaying))
+			#else
+			if (m_FitTarget && m_FitOnLateUpdate)
+			#endif
 			{
-				FitTo(m_AutoFitTarget);
+				FitTo(m_FitTarget);
 			}
 		}
 
