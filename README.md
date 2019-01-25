@@ -8,12 +8,12 @@ Reverse mask for uGUI element in Unity.
 [![](https://img.shields.io/github/release/mob-sakai/UnmaskForUGUI.svg?label=latest%20version)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
 [![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
 ![](https://img.shields.io/badge/unity-5.5%2B-green.svg)
-[![](https://img.shields.io/github/license/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/blob/master/LICENSE.txt)
+[![](https://img.shields.io/github/license/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
 
-<< [Description](#Description) | [WebGL Demo](#demo) | [Download](https://github.com/mob-sakai/UnmaskForUGUI/releases) | [Usage](#usage) >>
+<< [Description](#Description) | [WebGL Demo](#demo) | [Download](https://github.com/mob-sakai/UnmaskForUGUI/releases) | [Install](#install) | [Usage](#usage) >>
 
-### What's new? [See changelog ![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg?label=last%20updated)](https://github.com/mob-sakai/UnmaskForUGUI/blob/develop/CHANGELOG.md)
+### What's new? [See changelog ![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg?label=last%20updated)](https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/CHANGELOG.md)
 ### Do you want to receive notifications for new releases? [Watch this repo ![](https://img.shields.io/github/watchers/mob-sakai/UnmaskForUGUI.svg?style=social&label=Watch)](https://github.com/mob-sakai/UnmaskForUGUI/subscription)
 
 
@@ -29,8 +29,8 @@ Unmask provides the following features:
 
 | Component | Features | Screenshot |
 |-|-|-|
-|**Unmask**|Reverse masking for parent Mask component.<br><br>**Auto Fit Target:** Fit graphic's transform to target transform on LateUpdate.<br>**Show Unmask Graphic:** Show the graphic that is associated with the unmask render area.|<img src="https://user-images.githubusercontent.com/12690315/46914022-c6c9dd00-cfd2-11e8-97b7-bb5678dc3042.png" width="600px">|
-|**UnmaskRaycastFilter**|The ray Passes through the unmasked rectangle.<br>You can click on the unmasked button on the back side.|<img src="https://user-images.githubusercontent.com/12690315/46914023-c6c9dd00-cfd2-11e8-9c66-985e4892cb64.png" width="600px">|
+|**Unmask**|Reverse masking for parent Mask component.<br><br>**Fit Target / Fit On Late Update:** Fit graphic's transform to target transform on LateUpdate.<br>**Only For Children:** Unmask affects only for children.<br>**Show Unmask Graphic:** Show the graphic that is associated with the unmask render area.|<img src="https://user-images.githubusercontent.com/12690315/51745704-0e3e2a00-20e7-11e9-8da8-5abb1c5193bc.png" width="600px">|
+|**UnmaskRaycastFilter**|The ray Passes through the unmasked rectangle.<br>You can click on the unmasked button on the back side.|<img src="https://user-images.githubusercontent.com/12690315/51745958-ebf8dc00-20e7-11e9-8cfc-8174e6ab2b7c.png" width="600px">|
 
 
 
@@ -40,6 +40,31 @@ Unmask provides the following features:
 [WebGL Demo](http://mob-sakai.github.io/UnmaskForUGUI)
 
 ![demo](https://user-images.githubusercontent.com/12690315/46986251-4e296480-d129-11e8-8e3a-2bb0e5fbe533.gif)
+
+
+
+<br><br><br><br>
+## Install
+
+#### Using UnityPackageManager (for Unity 2018.3+)
+
+Find the manifest.json file in the Packages folder of your project and edit it to look like this:
+```js
+{
+  "dependencies": {
+    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#1.1.0",
+    ...
+  },
+}
+```
+To update the package, change `#1.1.0` to the target version.  
+Or, use [UpmGitExtension](https://github.com/mob-sakai/UpmGitExtension).
+
+#### Using .unitypackage file (for Unity 5.5+)
+
+Download `*.unitypackage` from [Releases](https://github.com/mob-sakai/UnmaskForUGUI/releases) and import the package into your Unity project.  
+Select `Assets > Import Package > Custom Package` from the menu.  
+![](https://user-images.githubusercontent.com/12690315/46570979-edbb5a00-c9a7-11e8-845d-c5ee279effec.png)
 
 
 
@@ -99,4 +124,4 @@ Unmask provides the following features:
 * Releases : https://github.com/mob-sakai/UnmaskForUGUI/releases
 * Issue tracker : https://github.com/mob-sakai/UnmaskForUGUI/issues
 * Current project : https://github.com/mob-sakai/UnmaskForUGUI/projects/1
-* Change log : https://github.com/mob-sakai/UnmaskForUGUI/blob/master/CHANGELOG.md
+* Change log : https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/CHANGELOG.md
