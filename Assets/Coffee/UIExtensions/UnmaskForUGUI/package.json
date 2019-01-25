@@ -1,0 +1,18 @@
+{
+  "name": "com.coffee.unmask",
+	"displayName": "Unmask for uGUI",
+	"description": "Reverse mask for uGUI element in Unity.",
+  "version": "1.1.0",
+	"unity": "5.5",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mob-sakai/UnmaskForUGUI.git"
+  },
+  "src": "Assets/Coffee/UIExtensions/UnmaskForUGUI",
+	"author": "mob-sakai <sakai861104@gmail.com> (https://github.com/mob-sakai)",
+  "editorOnly": false,
+  "upmSupport": true,
+	"dependencies": {
+	}
+}
