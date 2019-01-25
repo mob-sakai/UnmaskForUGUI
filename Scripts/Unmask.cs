@@ -29,6 +29,8 @@ namespace Coffee.UIExtensions
 		[SerializeField] bool m_FitOnLateUpdate;
 		[Tooltip("Show the graphic that is associated with the unmask render area.")]
 		[SerializeField] bool m_ShowUnmaskGraphic = false;
+		[Tooltip ("Unmask affects only for children.")]
+		[SerializeField] bool m_OnlyForChildren = false;
 
 
 		//################################
@@ -70,6 +72,20 @@ namespace Coffee.UIExtensions
 			}
 		}
 
+
+		/// <summary>
+		/// Unmask affects only for children.
+		/// </summary>
+		public bool onlyForChildren
+		{
+			get { return m_OnlyForChildren; }
+			set
+			{
+				m_OnlyForChildren = value;
+				SetDirty ();
+			}
+		}
+
 		/// <summary>
 		/// Perform material modification in this function.
 		/// </summary>
@@ -87,6 +103,22 @@ namespace Coffee.UIExtensions
 
 			StencilMaterial.Remove(_unmaskMaterial);
 			_unmaskMaterial = StencilMaterial.Add(baseMaterial, (1 << stencilDepth) - 1, StencilOp.Zero, CompareFunction.Always, m_ShowUnmaskGraphic ? ColorWriteMask.All : (ColorWriteMask)0, 0, (1 << stencilDepth) - 1);
+
+			// Unmask affects only for children.
+			var canvasRenderer = graphic.canvasRenderer;
+			if (m_OnlyForChildren)
+			{
+				canvasRenderer.hasPopInstruction = true;
+				StencilMaterial.Remove (_revertUnmaskMaterial);
+				_revertUnmaskMaterial = StencilMaterial.Add (baseMaterial, (1 << stencilDepth) - 1, StencilOp.Replace, CompareFunction.NotEqual, (ColorWriteMask)0);
+				canvasRenderer.popMaterialCount = 1;
+				canvasRenderer.SetPopMaterial (_revertUnmaskMaterial, 0);
+			}
+			else
+			{
+				canvasRenderer.hasPopInstruction = false;
+				canvasRenderer.popMaterialCount = 0;
+			}
 
 			return _unmaskMaterial;
 		}
@@ -114,6 +146,7 @@ namespace Coffee.UIExtensions
 		// Private Members.
 		//################################
 		Material _unmaskMaterial;
+		Material _revertUnmaskMaterial;
 		Graphic _graphic;
 
 		/// <summary>
@@ -133,9 +166,15 @@ namespace Coffee.UIExtensions
 		/// </summary>
 		void OnDisable()
 		{
-			StencilMaterial.Remove(_unmaskMaterial);
+			StencilMaterial.Remove (_unmaskMaterial);
+			StencilMaterial.Remove (_revertUnmaskMaterial);
 			_unmaskMaterial = null;
-			SetDirty();
+			_revertUnmaskMaterial = null;
+
+			var canvasRenderer = graphic.canvasRenderer;
+			canvasRenderer.hasPopInstruction = false;
+			canvasRenderer.popMaterialCount = 0;
+			SetDirty ();
 		}
 
 		/// <summary>
