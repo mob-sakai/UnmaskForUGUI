@@ -3,7 +3,7 @@ UnmaskForUGUI
 
 Reverse mask for uGUI element in Unity.
 
-![](https://user-images.githubusercontent.com/12690315/46914021-c6c9dd00-cfd2-11e8-9698-6332bac8fef5.png)
+![](https://user-images.githubusercontent.com/12690315/51747120-e1d8dc80-20eb-11e9-952e-a67915af1294.png)
 
 [![](https://img.shields.io/github/release/mob-sakai/UnmaskForUGUI.svg?label=latest%20version)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
 [![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
@@ -71,18 +71,15 @@ Select `Assets > Import Package > Custom Package` from the menu.
 <br><br><br><br>
 ## Usage
 
-1. Download `*.unitypackage` from [Releases](https://github.com/mob-sakai/UnmaskForUGUI/releases).
-2. Import the package into your Unity project. Select `Import Package > Custom Package` from the `Assets` menu.  
-![](https://user-images.githubusercontent.com/12690315/46570979-edbb5a00-c9a7-11e8-845d-c5ee279effec.png)
-3. Add Unmask component to the UI element (Image, RawImage, Text, etc...) under Mask, from `Add Component` in inspector or `Component > UI > Unmask > Unmask` menu.
-4. If you want to unmask the area of the button, follow the steps below:
+1. Add Unmask component to the UI element (Image, RawImage, Text, etc...) under Mask, from `Add Component` in inspector or `Component > UI > Unmask > Unmask` menu.
+2. If you want to unmask the area of the button, follow the steps below:
     * Set the button to `Fit Target` in Unmask component.
     * If the button moves with animation etc., enable `Fit On LateUpdate` in Unmask component.
     * Add a UnmaskRaycastFilter component to UI element blocking ray.
     * Set the Unmask to `Unmask` in UnmaskRaycastFilter component.
     * Disable `RaycastTarget` of the UI elements, as necessary.  
 ![](https://user-images.githubusercontent.com/12690315/46986095-8a0ffa00-d128-11e8-83ac-9151e2d8635d.gif)
-1. Enjoy!
+3. Enjoy!
 
 
 ##### Requirement
