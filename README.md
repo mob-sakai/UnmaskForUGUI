@@ -52,12 +52,12 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 ```js
 {
   "dependencies": {
-    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#1.1.0",
+    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#1.1.1",
     ...
   },
 }
 ```
-To update the package, change `#1.1.0` to the target version.  
+To update the package, change `#{version}` to the target version.  
 Or, use [UpmGitExtension](https://github.com/mob-sakai/UpmGitExtension).
 
 #### Using .unitypackage file (for Unity 5.5+)
