@@ -14,12 +14,6 @@ namespace Coffee.UIExtensions
 	public class UnmaskRaycastFilter : MonoBehaviour, ICanvasRaycastFilter
 	{
 		//################################
-		// Constant or Static Members.
-		//################################
-		Vector3[] s_WorldCorners = new Vector3[4];
-
-
-		//################################
 		// Serialize Members.
 		//################################
 		[Tooltip("Target unmask component. The ray passes through the unmasked rectangle.")]
@@ -48,25 +42,8 @@ namespace Coffee.UIExtensions
 				return true;
 			}
 
-			// Get world corners for the target.
-			(m_TargetUnmask.transform as RectTransform).GetWorldCorners(s_WorldCorners);
-
-			// Convert to screen positions.
-			var cam = eventCamera ?? Camera.main;
-			var p = cam.WorldToScreenPoint(sp);
-			var a = cam.WorldToScreenPoint(s_WorldCorners[0]);
-			var b = cam.WorldToScreenPoint(s_WorldCorners[1]);
-			var c = cam.WorldToScreenPoint(s_WorldCorners[2]);
-			var d = cam.WorldToScreenPoint(s_WorldCorners[3]);
-
-			// check left/right side
-			var ab = Cross(p - a, b - a) < 0.0;
-			var bc = Cross(p - b, c - b) < 0.0;
-			var cd = Cross(p - c, d - c) < 0.0;
-			var da = Cross(p - d, a - d) < 0.0;
-
 			// check inside
-			return ab ^ bc ||bc ^ cd ||cd ^ da;
+			return !RectTransformUtility.RectangleContainsScreenPoint ((m_TargetUnmask.transform as RectTransform), sp);
 		}
 
 
@@ -79,14 +56,6 @@ namespace Coffee.UIExtensions
 		/// </summary>
 		void OnEnable()
 		{
-		}
-
-		/// <summary>
-		/// Cross for Vector2.
-		/// </summary>
-		float Cross(Vector2 a, Vector2 b)
-		{
-			return a.x * b.y - a.y * b.x;
 		}
 	}
 }
