@@ -1,8 +1,16 @@
 # Changelog
 
-## [1.1.0](https://github.com/mob-sakai/UnmaskForUGUI/tree/1.1.0) (2019-01-25)
+## [v1.1.1](https://github.com/mob-sakai/UnmaskForUGUI/tree/v1.1.1) (2019-02-07)
 
-[Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v1.0.0...1.1.0)
+[Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v1.1.0...v1.1.1)
+
+**Fixed bugs:**
+
+- UnmaskRaycastFilter is not reliable [\#14](https://github.com/mob-sakai/UnmaskForUGUI/issues/14)
+
+## [v1.1.0](https://github.com/mob-sakai/UnmaskForUGUI/tree/v1.1.0) (2019-01-25)
+
+[Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.1.0...v1.1.0)
 
 **Install UnmaskForUGUI with Unity Package Manager!**
 
