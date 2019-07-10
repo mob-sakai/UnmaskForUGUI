@@ -3,7 +3,7 @@
 	"displayName": "Unmask for uGUI",
 	"description": "Reverse mask for uGUI element in Unity.",
   "version": "1.1.1",
-	"unity": "5.5",
+  "unity": "2017.1",
   "license": "MIT",
   "repository": {
     "type": "git",
