@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.1.3](https://github.com/mob-sakai/UnmaskForUGUI/tree/v1.1.3) (2019-07-12)
+
+[Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v1.1.2...v1.1.3)
+
+**Fixed bugs:**
+
+- There is no asmdef file in this package [\#16](https://github.com/mob-sakai/UnmaskForUGUI/issues/16)
+
+**Closed issues:**
+
+- Separate the demo directory as unitypackage [\#17](https://github.com/mob-sakai/UnmaskForUGUI/issues/17)
+
 ## [v1.1.2](https://github.com/mob-sakai/UnmaskForUGUI/tree/v1.1.2) (2019-07-10)
 
 [Full Changelog](https://github.com/mob-sakai/UnmaskForUGUI/compare/v1.1.1...v1.1.2)
