@@ -52,7 +52,7 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 ```js
 {
   "dependencies": {
-    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#1.1.2",
+    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#1.1.3",
     ...
   },
 }
