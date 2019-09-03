@@ -130,6 +130,7 @@ namespace Coffee.UIExtensions
 		{
 			var rt = transform as RectTransform;
 
+                        rt.pivot = target.pivot;
 			rt.position = target.position;
 			rt.rotation = target.rotation;
 
