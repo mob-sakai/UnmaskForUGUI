@@ -42,8 +42,15 @@ namespace Coffee.UIExtensions
 				return true;
 			}
 
-			// check inside
-			return !RectTransformUtility.RectangleContainsScreenPoint ((m_TargetUnmask.transform as RectTransform), sp);
+            // check inside
+            if (eventCamera)
+            {
+                return !RectTransformUtility.RectangleContainsScreenPoint((m_TargetUnmask.transform as RectTransform), sp, eventCamera);
+            }
+            else
+            {
+                return !RectTransformUtility.RectangleContainsScreenPoint((m_TargetUnmask.transform as RectTransform), sp);
+            }
 		}
 
 
