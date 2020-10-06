@@ -1,18 +1,66 @@
 {
-  "name": "com.coffee.unmask",
-  "displayName": "Unmask for uGUI",
-  "description": "Reverse mask for uGUI element in Unity.",
-  "version": "1.1.3",
-  "unity": "2017.1",
+  "name": "release-upm",
+  "version": "1.0.0",
+  "description": "To release the upm package, execute `npm run release` on terminal.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mob-sakai/UnmaskForUGUI.git"
+    "url": "https://github.com/mob-sakai"
   },
-  "src": "Assets/Coffee/UIExtensions/UnmaskForUGUI",
-  "author": "mob-sakai <sakai861104@gmail.com> (https://github.com/mob-sakai)",
-  "editorOnly": false,
-  "upmSupport": true,
-  "dependencies": {
+  "scripts": {
+    "package:format": "npx format-package -w",
+    "package:update": "npx ncu -u && npm install && npm audit fix",
+    "release": "npm ci && cd `find Packages/*/.releaserc -exec dirname {} +` && npx semantic-release",
+    "release:debug": "npm run release -- --dry-run --no-ci --debug"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "master",
+      {
+        "name": "preview",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false,
+          "tarballDir": "."
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "*.tgz"
+          ]
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "tar -xzvf *.tgz && git snapshot --prefix=package --branch=upm --remote=${options.repositoryUrl} --tag=${nextRelease.version} --message=\"${nextRelease.version}\n\n${nextRelease.notes}\"",
+          "verifyReleaseCmd": "test -d Samples && mv Samples Samples~ && rm -f Samples.meta || exit 0"
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "git-snapshot": "^2.2.1",
+    "semantic-release": "^17.1.1"
   }
 }

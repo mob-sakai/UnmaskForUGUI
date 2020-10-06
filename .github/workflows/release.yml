@@ -1,0 +1,33 @@
+name: release
+
+on:
+  push:
+    branches:
+      - preview
+      - master
+      - v*.x
+    tags-ignore:
+      - "**"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    if: "! contains(github.event.head_commit.message, '[skip ci]') && ! contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - run: echo "${{ github.event.head_commit.message }}"
+
+  release:
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - run: npm run release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
