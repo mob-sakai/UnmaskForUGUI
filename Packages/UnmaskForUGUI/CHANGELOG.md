@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/mob-sakai/UnmaskForUGUI/compare/v1.1.3...v1.2.0) (2020-10-07)
+
+
+### Bug Fixes
+
+* adapt pivot when trying to fit to target ([a39fcef](https://github.com/mob-sakai/UnmaskForUGUI/commit/a39fcefba29beba079ac41d96ebabeaa5e92117e))
+* pass camera to check the point in rectangle when camera is not null ([65a0ad0](https://github.com/mob-sakai/UnmaskForUGUI/commit/65a0ad0424edd9093fc9dfdfc0daf3c5aa27a145))
+
+
+### Features
+
+* add menu to import demo ([74603c5](https://github.com/mob-sakai/UnmaskForUGUI/commit/74603c5e08a4acd6b6fc8b711bf1b195bf7cf366))
+
 # Changelog
 
 ## [v1.1.3](https://github.com/mob-sakai/UnmaskForUGUI/tree/v1.1.3) (2019-07-12)
