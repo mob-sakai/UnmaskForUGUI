@@ -1,24 +1,29 @@
-UnmaskForUGUI
+Unmask For UGUI
 ===
 
 Reverse mask for uGUI element in Unity.
 
 ![](https://user-images.githubusercontent.com/12690315/51747120-e1d8dc80-20eb-11e9-952e-a67915af1294.png)
 
-[![](https://img.shields.io/github/release/mob-sakai/UnmaskForUGUI.svg?label=latest%20version)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
+[![](https://img.shields.io/npm/v/com.coffee.unmask?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.coffee.unmask/)
+[![](https://img.shields.io/github/v/release/mob-sakai/UnmaskForUGUI?include_prereleases)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
 [![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
-![](https://img.shields.io/badge/unity-5.5%2B-green.svg)
 [![](https://img.shields.io/github/license/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
+[![](https://img.shields.io/twitter/follow/mob_sakai.svg?label=Follow&style=social)](https://twitter.com/intent/follow?screen_name=mob_sakai)
 
-<< [Description](#Description) | [WebGL Demo](#demo) | [Download](https://github.com/mob-sakai/UnmaskForUGUI/releases) | [Install](#install) | [Usage](#usage) >>
+![](https://img.shields.io/badge/Unity%205.5%20or%20later-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202018.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202019.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202020.x-supported-blue.svg)
+![](https://img.shields.io/badge/Universal%20RP-supported-blue.svg)  
 
-### What's new? [See changelog ![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg?label=last%20updated)](https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/CHANGELOG.md)
-### Do you want to receive notifications for new releases? [Watch this repo ![](https://img.shields.io/github/watchers/mob-sakai/UnmaskForUGUI.svg?style=social&label=Watch)](https://github.com/mob-sakai/UnmaskForUGUI/subscription)
+<< [Description](#description) | [WebGL Demo](#demo) | [Installation](#installation) | [Usage](#usage) | [Contributing](#contributing) >>
 
 
 
 <br><br><br><br>
+
 ## Description
 
 Unmask provides the following features:
@@ -44,32 +49,71 @@ Unmask provides the following features:
 
 
 <br><br><br><br>
-## Install
 
-#### Using UnityPackageManager (for Unity 2018.3+)
+## Installation
+
+### Requirement
+
+* Unity 5.5 or later
+  * Support 2017.x, 2018.x, 2019.x and 2020.x.
+
+### Using OpenUPM
+
+This package is available on [OpenUPM](https://openupm.com).  
+You can install it via [openupm-cli](https://github.com/openupm/openupm-cli).
+```
+openupm add com.coffee.unmask
+```
+
+### Using Git
 
 Find the manifest.json file in the Packages folder of your project and edit it to look like this:
-```js
+```
 {
   "dependencies": {
-    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#1.1.3",
+    "com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git",
     ...
   },
 }
 ```
-To update the package, change `#{version}` to the target version.  
-Or, use [UpmGitExtension](https://github.com/mob-sakai/UpmGitExtension).
 
-#### Using .unitypackage file (for Unity 5.5+)
+To update the package, change suffix `#{version}` to the target version.
 
-Download `*.unitypackage` from [Releases](https://github.com/mob-sakai/UnmaskForUGUI/releases) and import the package into your Unity project.  
-Select `Assets > Import Package > Custom Package` from the menu.  
-![](https://user-images.githubusercontent.com/12690315/46570979-edbb5a00-c9a7-11e8-845d-c5ee279effec.png)
+* e.g. `"com.coffee.unmask": "https://github.com/mob-sakai/UnmaskForUGUI.git#2.0.0",`
+
+Or, use [UpmGitExtension](https://github.com/mob-sakai/UpmGitExtension) to install and update the package.
+
+### For Unity 2018.2 or earlier
+
+1. Download a source code zip file from [Releases](https://github.com/mob-sakai/UnmaskForUGUI/releases) page
+2. Extract it
+3. Import it into the following directory in your Unity project
+   - `Packages` (It works as an embedded package. For Unity 2018.1 or later)
+   - `Assets` (Legacy way. For Unity 2017.1 or later)
 
 
 
 <br><br><br><br>
+
+## How to play demo
+
+- For Unity 2019.1 or later
+  - Open `Package Manager` window and select `UI Unmask` package in package list and click `Demo > Import in project` button
+- For Unity 2018.4 or earlier
+  - Click `Assets/Samples/UI Unmask/Import Demo` from menu
+
+The assets will be imported into `Assets/Samples/UI Unmask/{version}/Demo`.  
+Open `UIUnmask_Demo` scene and play it.
+
+
+
+<br><br><br><br>
+
 ## Usage
+
+### Unmask
+
+### UnmaskRaycastFilter
 
 1. Add Unmask component to the UI element (Image, RawImage, Text, etc...) under Mask, from `Add Component` in inspector or `Component > UI > Unmask > Unmask` menu.
 2. If you want to unmask the area of the button, follow the steps below:
@@ -79,17 +123,12 @@ Select `Assets > Import Package > Custom Package` from the menu.
     * Set the Unmask to `Unmask` in UnmaskRaycastFilter component.
     * Disable `RaycastTarget` of the UI elements, as necessary.  
 ![](https://user-images.githubusercontent.com/12690315/46986095-8a0ffa00-d128-11e8-83ac-9151e2d8635d.gif)
-3. Enjoy!
-
-
-##### Requirement
-
-* Unity 5.5+ *(included Unity 2018.x)*
-* No other SDK are required
+1. Enjoy!
 
 
 
 <br><br><br><br>
+
 ## Example of using
 
 | Case | Description |Screenshot |
@@ -102,6 +141,36 @@ Select `Assets > Import Package > Custom Package` from the menu.
 
 
 <br><br><br><br>
+
+## Contributing
+
+### Issues
+
+Issues are very valuable to this project.
+
+- Ideas are a valuable source of contributions others can make
+- Problems show where this project is lacking
+- With a question you show where contributors can improve the user experience
+
+### Pull Requests
+
+Pull requests are, a great way to get your ideas into this repository.  
+See [CONTRIBUTING.md](/../../blob/upm/CONTRIBUTING.md) and [develop](https://github.com/mob-sakai/UnmaskForUGUI/tree/develop) branch..
+
+### Support
+
+This is an open source project that I am developing in my spare time.  
+If you like it, please support me.  
+With your support, I can spend more time on development. :)
+
+[![](https://user-images.githubusercontent.com/12690315/50731629-3b18b480-11ad-11e9-8fad-4b13f27969c1.png)](https://www.patreon.com/join/2343451?)  
+[![](https://user-images.githubusercontent.com/12690315/66942881-03686280-f085-11e9-9586-fc0b6011029f.png)](https://github.com/users/mob-sakai/sponsorship)
+
+
+
+
+<br><br><br><br>
+
 ## License
 
 * MIT
@@ -112,6 +181,7 @@ Select `Assets > Import Package > Custom Package` from the menu.
 ## Author
 
 [mob-sakai](https://github.com/mob-sakai)
+[![](https://img.shields.io/twitter/follow/mob_sakai.svg?label=Follow&style=social)](https://twitter.com/intent/follow?screen_name=mob_sakai) 
 
 
 
@@ -120,5 +190,4 @@ Select `Assets > Import Package > Custom Package` from the menu.
 * GitHub page : https://github.com/mob-sakai/UnmaskForUGUI
 * Releases : https://github.com/mob-sakai/UnmaskForUGUI/releases
 * Issue tracker : https://github.com/mob-sakai/UnmaskForUGUI/issues
-* Current project : https://github.com/mob-sakai/UnmaskForUGUI/projects/1
 * Change log : https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/CHANGELOG.md

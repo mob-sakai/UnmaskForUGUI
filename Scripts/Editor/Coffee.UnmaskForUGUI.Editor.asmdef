@@ -1,0 +1,16 @@
+{
+    "name": "Coffee.UnmaskForUGUI.Editor",
+    "references": [
+        "Coffee.UnmaskForUGUI"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": []
+}
