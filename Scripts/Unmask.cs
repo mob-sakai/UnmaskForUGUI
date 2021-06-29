@@ -99,16 +99,17 @@ namespace Coffee.UIExtensions
 
 			Transform stopAfter = MaskUtilities.FindRootSortOverrideCanvas(transform);
 			var stencilDepth = MaskUtilities.GetStencilDepth(transform, stopAfter);
+			var desiredStencilBit = 1 << stencilDepth;
 
 			StencilMaterial.Remove(_unmaskMaterial);
-			_unmaskMaterial = StencilMaterial.Add(baseMaterial, (1 << stencilDepth) - 1, StencilOp.Zero, CompareFunction.Always, m_ShowUnmaskGraphic ? ColorWriteMask.All : (ColorWriteMask)0, 0, (1 << stencilDepth) - 1);
+			_unmaskMaterial = StencilMaterial.Add(baseMaterial, desiredStencilBit - 1, StencilOp.Invert, CompareFunction.Equal, m_ShowUnmaskGraphic ? ColorWriteMask.All : (ColorWriteMask)0, desiredStencilBit - 1, (1 << 8) - 1);
 
 			// Unmask affects only for children.
 			var canvasRenderer = graphic.canvasRenderer;
 			if (m_OnlyForChildren)
 			{
 				StencilMaterial.Remove (_revertUnmaskMaterial);
-				_revertUnmaskMaterial = StencilMaterial.Add (baseMaterial, (1 << stencilDepth) - 1, StencilOp.Replace, CompareFunction.NotEqual, (ColorWriteMask)0);
+				_revertUnmaskMaterial = StencilMaterial.Add(baseMaterial, (1 << 7), StencilOp.Invert, CompareFunction.Equal, (ColorWriteMask)0, (1 << 7), (1 << 8) - 1);
 				canvasRenderer.hasPopInstruction = true;
 				canvasRenderer.popMaterialCount = 1;
 				canvasRenderer.SetPopMaterial (_revertUnmaskMaterial, 0);
