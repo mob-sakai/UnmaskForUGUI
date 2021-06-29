@@ -8,14 +8,17 @@ Reverse mask for uGUI element in Unity.
 [![](https://img.shields.io/npm/v/com.coffee.unmask?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.coffee.unmask/)
 [![](https://img.shields.io/github/v/release/mob-sakai/UnmaskForUGUI?include_prereleases)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
 [![](https://img.shields.io/github/release-date/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/releases)
-[![](https://img.shields.io/github/license/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/LICENSE.txt)
+[![](https://img.shields.io/github/license/mob-sakai/UnmaskForUGUI.svg)](https://github.com/mob-sakai/UnmaskForUGUI/blob/main/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
 [![](https://img.shields.io/twitter/follow/mob_sakai.svg?label=Follow&style=social)](https://twitter.com/intent/follow?screen_name=mob_sakai)
 
-![](https://img.shields.io/badge/Unity%205.5%20or%20later-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%205.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202017.x-supported-blue.svg)
 ![](https://img.shields.io/badge/Unity%202018.x-supported-blue.svg)
 ![](https://img.shields.io/badge/Unity%202019.x-supported-blue.svg)
 ![](https://img.shields.io/badge/Unity%202020.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202021.x-supported-blue.svg)
+
 ![](https://img.shields.io/badge/Universal%20RP-supported-blue.svg)  
 
 << [Description](#description) | [WebGL Demo](#demo) | [Installation](#installation) | [Usage](#usage) | [Contributing](#contributing) >>
@@ -54,8 +57,14 @@ Unmask provides the following features:
 
 ### Requirement
 
-* Unity 5.5 or later
-  * Support 2017.x, 2018.x, 2019.x and 2020.x.
+![](https://img.shields.io/badge/Unity%205.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202017.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202018.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202019.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202020.x-supported-blue.svg)
+![](https://img.shields.io/badge/Unity%202021.x-supported-blue.svg)
+
+![](https://img.shields.io/badge/Universal%20RP-supported-blue.svg)
 
 ### Using OpenUPM
 
@@ -111,19 +120,12 @@ Open `UIUnmask_Demo` scene and play it.
 
 ## Usage
 
-### Unmask
+Create Object From Menu (`GameObject > UI > Unmask > ***`)
 
-### UnmaskRaycastFilter
-
-1. Add Unmask component to the UI element (Image, RawImage, Text, etc...) under Mask, from `Add Component` in inspector or `Component > UI > Unmask > Unmask` menu.
-2. If you want to unmask the area of the button, follow the steps below:
-    * Set the button to `Fit Target` in Unmask component.
-    * If the button moves with animation etc., enable `Fit On LateUpdate` in Unmask component.
-    * Add a UnmaskRaycastFilter component to UI element blocking ray.
-    * Set the Unmask to `Unmask` in UnmaskRaycastFilter component.
-    * Disable `RaycastTarget` of the UI elements, as necessary.  
-![](https://user-images.githubusercontent.com/12690315/46986095-8a0ffa00-d128-11e8-83ac-9151e2d8635d.gif)
-1. Enjoy!
+|Menu|Screenshot|
+|--|--|
+|Tutorial Button|![](https://user-images.githubusercontent.com/12690315/123756826-4a00fd80-d8f8-11eb-8fb4-5d4399a3f907.png)|
+|Iris Shot|![](https://user-images.githubusercontent.com/12690315/123756809-45d4e000-d8f8-11eb-8bc9-767b81b8da42.png)|
 
 
 
@@ -136,7 +138,7 @@ Open `UIUnmask_Demo` scene and play it.
 |Unmasked text|Black screen is cut out with unmasked text.|![](https://user-images.githubusercontent.com/12690315/46914021-c6c9dd00-cfd2-11e8-9698-6332bac8fef5.png)|
 |Hole|Black screen is cut out with unmasked Image.|![](https://user-images.githubusercontent.com/12690315/46985696-9b580700-d126-11e8-9b4a-3d66180c9562.png)|
 |Tutorial button|In tutorial, only specific button can be pressed.|![](https://user-images.githubusercontent.com/12690315/46983810-30560280-d11d-11e8-86d5-b25117740df4.png)|
-|Transition|Transition effect with silhouette.|![](https://user-images.githubusercontent.com/12690315/46983811-30560280-d11d-11e8-8d81-b38679cf9970.gif)|
+|Iris in/out|Transition effect with iris in/out.|![](https://user-images.githubusercontent.com/12690315/46983811-30560280-d11d-11e8-8d81-b38679cf9970.gif)|
 
 
 
@@ -155,7 +157,7 @@ Issues are very valuable to this project.
 ### Pull Requests
 
 Pull requests are, a great way to get your ideas into this repository.  
-See [CONTRIBUTING.md](/../../blob/upm/CONTRIBUTING.md) and [develop](https://github.com/mob-sakai/UnmaskForUGUI/tree/develop) branch..
+See [CONTRIBUTING.md](/../../blob/main/CONTRIBUTING.md) and [develop](https://github.com/mob-sakai/UnmaskForUGUI/tree/develop) branch..
 
 ### Support
 
@@ -190,4 +192,4 @@ With your support, I can spend more time on development. :)
 * GitHub page : https://github.com/mob-sakai/UnmaskForUGUI
 * Releases : https://github.com/mob-sakai/UnmaskForUGUI/releases
 * Issue tracker : https://github.com/mob-sakai/UnmaskForUGUI/issues
-* Change log : https://github.com/mob-sakai/UnmaskForUGUI/blob/upm/CHANGELOG.md
+* Change log : https://github.com/mob-sakai/UnmaskForUGUI/blob/main/CHANGELOG.md
