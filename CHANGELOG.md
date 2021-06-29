@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.2.0...1.3.0) (2021-06-29)
+
+
+### Bug Fixes
+
+* fix sample ([2cf7348](https://github.com/mob-sakai/UnmaskForUGUI/commit/2cf734838e380fd16c7f14eb2513346da70415b8))
+* only for children option inside a scrollview ([b1e2bcc](https://github.com/mob-sakai/UnmaskForUGUI/commit/b1e2bccd05615df26d2cf69494430f72c6314a45)), closes [#24](https://github.com/mob-sakai/UnmaskForUGUI/issues/24)
+* remove component icons ([27cf23b](https://github.com/mob-sakai/UnmaskForUGUI/commit/27cf23b5d275d694bc33357c8d84a26993f49eec))
+
+
+### Features
+
+* add menu to create template object ([907599c](https://github.com/mob-sakai/UnmaskForUGUI/commit/907599c97273f8ce96d55360d5b52cb42de83c5b))
+
 # [1.2.0](https://github.com/mob-sakai/UnmaskForUGUI/compare/v1.1.3...v1.2.0) (2020-10-07)
 
 
