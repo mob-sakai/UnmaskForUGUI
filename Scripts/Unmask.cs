@@ -25,6 +25,12 @@ namespace Coffee.UIExtensions
 		//################################
 		[Tooltip("Fit graphic's transform to target transform.")]
 		[SerializeField] RectTransform m_FitTarget;
+		[Tooltip("Fit sprite's transform to target transform.")]
+		[SerializeField] SpriteRenderer m_SpriteTarget;
+		[Tooltip("Given the fit graphic's transform or sprite's transform, it will work as a offset to adjust fit target position")]
+		[SerializeField] private Vector2 Offset;
+		[Tooltip("Given the fit graphic's transform or sprite's transform, it will work as a scale factor to adjust fit target size")]
+		[SerializeField] private float scaleFactor = 1f;
 		[Tooltip("Fit graphic's transform to target transform on LateUpdate every frame.")]
 		[SerializeField] bool m_FitOnLateUpdate;
 		[Tooltip ("Unmask affects only for children.")]
@@ -50,7 +56,17 @@ namespace Coffee.UIExtensions
 			set
 			{
 				m_FitTarget = value;
-				FitTo(m_FitTarget);
+				FitTo(m_FitTarget,m_FitTarget.rect.size*scaleFactor,Offset);
+			}
+		}
+
+		public SpriteRenderer spriteTarget
+		{
+			get { return m_SpriteTarget; }
+			set 
+			{
+				m_SpriteTarget = value;
+				FitTo(m_SpriteTarget.gameObject.transform, m_SpriteTarget.size * scaleFactor,Offset);
 			}
 		}
 
@@ -100,9 +116,10 @@ namespace Coffee.UIExtensions
 			Transform stopAfter = MaskUtilities.FindRootSortOverrideCanvas(transform);
 			var stencilDepth = MaskUtilities.GetStencilDepth(transform, stopAfter);
 			var desiredStencilBit = 1 << stencilDepth;
-
+			
 			StencilMaterial.Remove(_unmaskMaterial);
 			_unmaskMaterial = StencilMaterial.Add(baseMaterial, desiredStencilBit - 1, StencilOp.Invert, CompareFunction.Equal, m_ShowUnmaskGraphic ? ColorWriteMask.All : (ColorWriteMask)0, desiredStencilBit - 1, (1 << 8) - 1);
+
 
 			// Unmask affects only for children.
 			var canvasRenderer = graphic.canvasRenderer;
@@ -129,16 +146,45 @@ namespace Coffee.UIExtensions
 		/// <param name="target">Target transform.</param>
 		public void FitTo(RectTransform target)
 		{
-			var rt = transform as RectTransform;
+			FitTo(target,target.rect.size,Vector2.zero);
+		}
 
-                        rt.pivot = target.pivot;
-			rt.position = target.position;
+		public void FitTo(RectTransform target, Vector2 offset)
+		{
+			FitTo(target,target.rect.size,offset);
+		}
+		
+		public void FitTo(Transform target, Vector2 size)
+		{
+			FitTo(target,size,Vector2.zero);
+		}
+		
+		public void FitTo(RectTransform target, Vector2 size, Vector3 offSet)
+		{
+			var rt = transform as RectTransform;
+			
+			rt.pivot = target.pivot;
+			rt.position = target.position + offSet;
 			rt.rotation = target.rotation;
 
 			var s1 = target.lossyScale;
 			var s2 = rt.parent.lossyScale;
 			rt.localScale = new Vector3(s1.x / s2.x, s1.y / s2.y, s1.z / s2.z);
-			rt.sizeDelta = target.rect.size;
+			rt.sizeDelta = size;
+			rt.anchorMax = rt.anchorMin = s_Center;
+		}
+
+		public void FitTo(Transform target, Vector2 size, Vector3 offSet)
+		{
+			var rt = transform as RectTransform;
+			
+			rt.position = target.position + offSet;
+			rt.rotation = target.rotation;
+
+			var s1 = target.lossyScale;
+			var s2 = rt.parent.lossyScale;
+			rt.localScale = new Vector3(s1.x / s2.x, s1.y / s2.y, s1.z / s2.z);
+			rt.sizeDelta = size;
 			rt.anchorMax = rt.anchorMin = s_Center;
 		}
 
@@ -157,7 +203,10 @@ namespace Coffee.UIExtensions
 		{
 			if (m_FitTarget)
 			{
-				FitTo(m_FitTarget);
+				FitTo(m_FitTarget,m_FitTarget.rect.size * scaleFactor,Offset);
+			} else if (m_SpriteTarget) 
+			{
+				FitTo(m_SpriteTarget.gameObject.transform, m_SpriteTarget.size * scaleFactor,Offset);
 			}
 			SetDirty();
 		}
@@ -188,12 +237,16 @@ namespace Coffee.UIExtensions
 		void LateUpdate()
 		{
 #if UNITY_EDITOR
-			if (m_FitTarget && (m_FitOnLateUpdate || !Application.isPlaying))
+			if ((m_FitTarget || m_SpriteTarget) && (m_FitOnLateUpdate || !Application.isPlaying))
 #else
-			if (m_FitTarget && m_FitOnLateUpdate)
+			if ((m_FitTarget || m_SpriteTarget) && m_FitOnLateUpdate)
 #endif
 			{
-				FitTo(m_FitTarget);
+				if (m_FitTarget) {
+					FitTo(m_FitTarget,m_FitTarget.rect.size * scaleFactor,Offset);
+				} else if (m_SpriteTarget) {
+					FitTo(m_SpriteTarget.gameObject.transform, m_SpriteTarget.size * scaleFactor,Offset);
+				}
 			}
 		}
 
