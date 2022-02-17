@@ -42,3 +42,5 @@ _iOS/
 _WebGL/
 _Standalone/
 .idea/
+.vscode/
+
