@@ -34,6 +34,11 @@ namespace Coffee.UIExtensions
         [Tooltip("Show the graphic that is associated with the unmask render area.")]
         [SerializeField] private bool m_ShowUnmaskGraphic = false;
 
+        [Tooltip("Edge smoothing.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float m_EdgeSmoothing = 0f;
+
+
 
         //################################
         // Public Members.
@@ -85,6 +90,15 @@ namespace Coffee.UIExtensions
                 m_OnlyForChildren = value;
                 SetDirty();
             }
+        }
+
+        /// <summary>
+        /// Edge smooting.
+        /// </summary>
+        public float edgeSmoothing
+        {
+            get { return m_EdgeSmoothing; }
+            set { m_EdgeSmoothing = value; }
         }
 
         /// <summary>
@@ -197,6 +211,8 @@ namespace Coffee.UIExtensions
             {
                 FitTo(m_FitTarget);
             }
+
+            Smoothing(graphic, m_EdgeSmoothing);
         }
 
 #if UNITY_EDITOR
@@ -218,6 +234,32 @@ namespace Coffee.UIExtensions
             {
                 graphic.SetMaterialDirty();
             }
+        }
+
+        private static void Smoothing(MaskableGraphic graphic, float smooth)
+        {
+            if (!graphic) return;
+
+            Profiler.BeginSample("[Unmask] Smoothing");
+            var canvasRenderer = graphic.canvasRenderer;
+            var currentColor = canvasRenderer.GetColor();
+            var targetAlpha = 1f;
+            if (graphic.maskable && 0 < smooth)
+            {
+                var currentAlpha = graphic.color.a * canvasRenderer.GetInheritedAlpha();
+                if (0 < currentAlpha)
+                {
+                    targetAlpha = Mathf.Lerp(0.01f, 0.002f, smooth) / currentAlpha;
+                }
+            }
+
+            if (!Mathf.Approximately(currentColor.a, targetAlpha))
+            {
+                currentColor.a = Mathf.Clamp01(targetAlpha);
+                canvasRenderer.SetColor(currentColor);
+            }
+
+            Profiler.EndSample();
         }
     }
 }
