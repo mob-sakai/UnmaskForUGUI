@@ -6,4 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/UnmaskForUGUI_Demo/Unmask_Demo.unity
+    path: Assets/Samples/Demo/Unmask_Demo.unity
+    guid: 32ce32a82c95d44f28b601b63832814f
+  m_configObjects: {}
