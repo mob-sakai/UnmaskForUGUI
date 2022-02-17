@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.3.0...1.4.0) (2022-02-17)
+
+
+### Features
+
+* add edge smoothing option ([c5317de](https://github.com/mob-sakai/UnmaskForUGUI/commit/c5317deafeba575161db8b168dae845d68347236))
+
 # [1.3.0](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.2.0...1.3.0) (2021-06-29)
 
 

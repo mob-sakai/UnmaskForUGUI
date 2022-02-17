@@ -2,7 +2,7 @@
   "name": "com.coffee.unmask",
   "displayName": "UI Unmask",
   "description": "Reverse mask for uGUI element in Unity.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "unity": "2017.1",
   "license": "MIT",
   "repository": {
