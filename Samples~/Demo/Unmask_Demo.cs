@@ -6,6 +6,7 @@ namespace Coffee.UIExtensions.Demos
     public class Unmask_Demo : MonoBehaviour
     {
         [SerializeField] Unmask unmask = null;
+        [SerializeField] Unmask[] smoothingUnmasks = new Unmask[0];
         [SerializeField] Graphic transition = null;
         [SerializeField] Image transitionImage = null;
         [SerializeField] Sprite unity_chan = null;
@@ -27,6 +28,14 @@ namespace Coffee.UIExtensions.Demos
             transitionImage.SetNativeSize();
             var size = transitionImage.rectTransform.rect.size;
             transitionImage.rectTransform.sizeDelta = new Vector2(150, size.y / size.x * 150);
+        }
+
+        public void EnableSmoothing(bool flag)
+        {
+            foreach (var unmask in smoothingUnmasks)
+            {
+                unmask.edgeSmoothing = flag ? 1 : 0;
+            }
         }
     }
 }
