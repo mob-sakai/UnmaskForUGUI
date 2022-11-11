@@ -9,7 +9,12 @@ namespace Coffee.UIExtensions.Editors
         [MenuItem("GameObject/UI/Unmask/Tutorial Button")]
         private static void CreateTutorialButton2(MenuCommand menuCommand)
         {
-            EditorApplication.ExecuteMenuItem("GameObject/UI/Button");
+#if UNITY_2021_2_OR_NEWER
+            const string menuItemName = "GameObject/UI/Legacy/Button";
+#else
+            const string menuItemName = "GameObject/UI/Button";
+#endif
+            EditorApplication.ExecuteMenuItem(menuItemName);
             var button = Selection.activeGameObject.GetComponent<Button>();
             button.name = "Tutorial Button";
 
