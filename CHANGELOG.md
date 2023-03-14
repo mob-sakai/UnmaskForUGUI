@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.4.0...1.4.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* Fixed error when executing menu item ([9f0afa1](https://github.com/mob-sakai/UnmaskForUGUI/commit/9f0afa19a46bc7b718a80142b02e33ade67fa3b4)), closes [#27](https://github.com/mob-sakai/UnmaskForUGUI/issues/27)
+
 # [1.4.0](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.3.0...1.4.0) (2022-02-17)
 
 
