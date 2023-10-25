@@ -32,7 +32,7 @@ jobs:
 
     steps:
       # Checkout sandbox project
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: sandbox
           submodules: true
@@ -43,7 +43,7 @@ jobs:
         working-directory: Packages/dev
         run: git checkout ${{ github.sha }}
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: Library
           key: Library-${{ matrix.unityVersion }}-${{ github.sha }}
@@ -59,7 +59,7 @@ jobs:
 
       # Run tests
       - name: "Run tests"
-        uses: game-ci/unity-test-runner@main
+        uses: game-ci/unity-test-runner@v3
         with:
           unityVersion: ${{ matrix.unityVersion }}
           customParameters: -nographics
