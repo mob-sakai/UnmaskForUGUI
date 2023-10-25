@@ -23,9 +23,6 @@ namespace Coffee.UIExtensions.Editors
             unmask.fitTarget = button.transform as RectTransform;
             unmask.fitOnLateUpdate = true;
 
-            var screen = unmaskedPanel.transform.Find("Screen").GetComponent<Image>();
-            screen.gameObject.AddComponent<UnmaskRaycastFilter>().targetUnmask = unmask;
-
             Selection.activeGameObject = button.gameObject;
         }
 
@@ -35,6 +32,12 @@ namespace Coffee.UIExtensions.Editors
             var unmaskedPanel = CreateUnmaskedPanel(AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd"), Image.Type.Simple);
             unmaskedPanel.name = "Iris Shot";
             Selection.activeGameObject = unmaskedPanel;
+        }
+
+        [MenuItem("GameObject/UI/Unmask/Unmasked Panel")]
+        private static GameObject CreateUnmaskedPanel(MenuCommand menuCommand)
+        {
+            return CreateUnmaskedPanel(AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd"), Image.Type.Sliced);
         }
 
         private static GameObject CreateUnmaskedPanel(Sprite unmaskSprite, Image.Type spriteType)
@@ -50,6 +53,8 @@ namespace Coffee.UIExtensions.Editors
             unmask.name = "Unmask";
             unmask.transform.SetParent(mask.transform);
             unmask.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+
+            mask.gameObject.AddComponent<UnmaskRaycastFilter>().targetUnmask = unmask;
 
             var image = unmask.GetComponent<Image>();
             image.sprite = unmaskSprite;
