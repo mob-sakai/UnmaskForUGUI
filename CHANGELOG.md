@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.4.1...1.4.2) (2023-10-25)
+
+
+### Bug Fixes
+
+* UnmaskRaycastFilter not working anymore ([14ab505](https://github.com/mob-sakai/UnmaskForUGUI/commit/14ab505fbfaf1103bbb1869d0e42817bf8830ced)), closes [#29](https://github.com/mob-sakai/UnmaskForUGUI/issues/29)
+
 ## [1.4.1](https://github.com/mob-sakai/UnmaskForUGUI/compare/1.4.0...1.4.1) (2023-03-14)
 
 
