@@ -1,0 +1,8 @@
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+!Samples~
+
+*.tgz
+*.tgz.meta
